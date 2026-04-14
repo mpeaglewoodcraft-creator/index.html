@@ -32,7 +32,18 @@
     html { scroll-behavior: smooth; }
 
     body {
-      <img src="logo.jpg" class="logo" width="250">
+      <body>
+
+<!-- INTRO LOGO -->
+<div style="position:fixed;top:0;left:0;width:100%;height:100vh;background:black;display:flex;justify-content:center;align-items:center;z-index:9999;" id="intro">
+  <img src="logo.jpg" style="width:200px;animation:zoom 2s;">
+</div>
+
+<script>
+setTimeout(function(){
+  document.getElementById("intro").style.display="none";
+},2500);
+</script>
       font-family: 'Montserrat', sans-serif;
       background: var(--black);
       color: var(--text-main);
