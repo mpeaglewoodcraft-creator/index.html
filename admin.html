@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalog Admin | MP Eagle Wood Craft</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div id="pin-gate" class="pin-gate">
+    <div class="pin-gate__panel">
+      <h1 class="pin-gate__title">Admin</h1>
+      <p class="pin-gate__note">Enter PIN to manage the catalog. Session only — closes when you leave the tab.</p>
+      <label class="field">
+        <span class="field__label">PIN</span>
+        <input type="password" id="pin-input" class="input" autocomplete="off" />
+      </label>
+      <p class="pin-gate__error" id="pin-error" hidden>Incorrect PIN.</p>
+      <button type="button" class="btn btn--primary" id="pin-submit">Unlock</button>
+    </div>
+  </div>
+
+  <div id="admin-app" class="admin-app" hidden>
+    <header class="admin-header">
+      <div class="admin-header__row">
+        <h1 class="admin-header__title">MP Eagle Wood Craft — Catalog</h1>
+        <div class="admin-header__actions">
+          <a href="index.html" class="btn btn--ghost" target="_blank" rel="noopener">Preview site</a>
+          <button type="button" class="btn btn--primary" id="btn-export">Export JSON</button>
+        </div>
+      </div>
+      <nav class="admin-tabs" aria-label="Admin sections">
+        <button type="button" class="admin-tab is-active" data-tab="categories">Categories</button>
+        <button type="button" class="admin-tab" data-tab="products">Products</button>
+        <button type="button" class="admin-tab" data-tab="reviews">Reviews</button>
+        <button type="button" class="admin-tab" data-tab="site">Site settings</button>
+        <button type="button" class="admin-tab" data-tab="import">Import</button>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <section id="panel-categories" class="admin-panel is-active" data-panel="categories">
+        <div class="panel-head">
+          <h2>Categories</h2>
+          <button type="button" class="btn btn--small" id="cat-add">Add category</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="cat-table">
+            <thead>
+              <tr><th>Name</th><th>Slug</th><th>Id</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="panel-products" class="admin-panel" data-panel="products" hidden>
+        <div class="panel-head">
+          <h2>Products</h2>
+          <button type="button" class="btn btn--small" id="prod-add">Add product</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="prod-table">
+            <thead>
+              <tr>
+                <th>Sort</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Available</th>
+                <th>Image</th>
+                <th>Short feature</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="panel-reviews" class="admin-panel" data-panel="reviews" hidden>
+        <div class="panel-head">
+          <h2>Reviews</h2>
+          <button type="button" class="btn btn--small" id="rev-add">Add review</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="rev-table">
+            <thead>
+              <tr><th>Sort</th><th>Author</th><th>Rating</th><th>Text</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="panel-site" class="admin-panel" data-panel="site" hidden>
+        <h2>Site settings</h2>
+        <p class="muted">Shown on the public contact section and used for Instagram display.</p>
+        <div class="form-grid">
+          <label class="field">
+            <span class="field__label">Contact email</span>
+            <input type="text" class="input" id="site-email" />
+          </label>
+          <label class="field">
+            <span class="field__label">Contact phone</span>
+            <input type="text" class="input" id="site-phone" placeholder="Optional" />
+          </label>
+          <label class="field">
+            <span class="field__label">Instagram handle</span>
+            <input type="text" class="input" id="site-ig" placeholder="mp_eagle_wood_craft" />
+          </label>
+          <label class="field field--check">
+            <input type="checkbox" id="site-show-unavail" />
+            <span>Show unavailable products in gallery (greyed / out of stock)</span>
+          </label>
+        </div>
+        <button type="button" class="btn btn--primary" id="site-save">Save site fields to catalog</button>
+      </section>
+
+      <section id="panel-import" class="admin-panel" data-panel="import" hidden>
+        <h2>Import JSON</h2>
+        <p class="muted">
+          <strong>Replace entire catalog</strong> overwrites everything in memory with the file contents (you can still export before doing this).
+          <strong>Merge backup</strong> updates matching ids and adds new rows; nothing is deleted automatically.
+        </p>
+        <label class="field">
+          <span class="field__label">Choose file</span>
+          <input type="file" id="import-file" accept="application/json,.json" />
+        </label>
+        <div class="import-actions">
+          <button type="button" class="btn btn--danger" id="import-replace">Import — replace entire catalog</button>
+          <button type="button" class="btn btn--primary" id="import-merge">Import — merge backup</button>
+        </div>
+        <p class="muted" id="import-status"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/catalog-store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
