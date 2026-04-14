@@ -2,376 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MP EAGLE WOOD CRAFT — STRONG. SIMPLE. SMART.</title>
-  <meta name="description" content="Premium handcrafted wooden products. STRONG. SIMPLE. SMART. Crafted for quality, built for everyday use. Order via Instagram.">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <title>MP Eagle Wood Craft</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <style>
-    :root {
-      --dark-bg: #161616;
-      --card-bg: #21201e;
-      --brown: #936341;
-      --gold: #C9A660;
-      --soft-gold: rgba(201,166,96,0.11);
-      --white: #f8f6f0;
-      --grey: #bbbbbb;
-      --shadow: 0 4px 22px 0 rgba(30,25,23,0.20);
-      --transition: 0.18s cubic-bezier(.4,0,.2,1);
-    }
-    html, body {
-      margin: 0; padding: 0;
-      background: var(--dark-bg);
-      color: var(--white);
-      font-family: 'Inter', Arial, sans-serif;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
-    a { color: var(--brown); text-decoration: none; transition: color var(--transition); }
-    a:hover { color: var(--gold); }
-    .container {
-      width: 90%; max-width: 1200px; margin: 0 auto;
-    }
-    .hero {
-      background: var(--dark-bg);
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #111;
+      color: #fff;
       text-align: center;
-      padding: 3.5em 0 2.5em;
-      border-bottom: 1px solid var(--soft-gold);
     }
-    .logo-img {
-      width: 95px; height: 95px;
-      object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 3px 22px 1px #0003;
-      margin-bottom: 18px;
+
+    h1 {
+      padding: 20px;
+      background: black;
     }
-    .hero-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.3em;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      margin-bottom: 7px;
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .tagline {
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: var(--gold);
-      font-size: 1.07em;
-      letter-spacing:0.17em;
-      font-weight: 700;
-      margin-bottom: 16px;
+
+    .card {
+      background: #1c1c1c;
+      margin: 15px;
+      padding: 15px;
+      width: 250px;
+      border-radius: 10px;
     }
-    .hero-desc {
-      color: var(--grey);
-      font-size: 1.13em;
-      margin-bottom: 2.2em;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
     }
-    .cta-btn {
-      background: linear-gradient(90deg, var(--brown) 92%, var(--gold) 100%);
-      color: var(--white);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 600;
-      font-size: 1.09em;
-      padding: 0.74em 2.5em;
-      border: none;
-      border-radius: 3em;
-      box-shadow: 0 2px 12px 0 #462b15cc;
-      cursor: pointer;
-      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
-      outline: none;
+
+    a {
+      display: inline-block;
       margin-top: 10px;
-      letter-spacing: 0.15em;
+      padding: 10px;
+      background: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
     }
-    .cta-btn:hover, .cta-btn:focus {
-      background: linear-gradient(90deg, var(--brown) 78%, var(--gold) 100%);
-      color: var(--gold);
-      transform: translateY(-1px) scale(1.04);
-      box-shadow: 0 5px 26px 2px #462b154c;
-    }
-    #products { padding: 3.5em 0 2.8em; }
-    .product-gallery {
-      display: flex; flex-wrap: wrap; gap: 2.5em 2em; justify-content: center;
-      margin-top: 2em;
-    }
-    .product-card {
-      display: flex; flex-direction: column; align-items: center;
-      background: var(--card-bg);
-      border-radius: 1.3em;
-      box-shadow: var(--shadow);
-      width: 310px;
-      min-height: 376px;
-      padding: 2em 1.4em 2.3em;
-      text-align: center;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      border: 1.5px solid transparent;
-      cursor: pointer;
-      position: relative;
-      outline: none;
-    }
-    .product-card:hover, .product-card:focus {
-      transform: translateY(-6px) scale(1.025);
-      box-shadow: 0 9px 26px 4px #a37d4e22;
-      border-color: var(--gold);
-      z-index: 2;
-    }
-    .product-img {
-      width: 116px; height: 116px;
-      object-fit: cover;
-      border-radius: 1em;
-      background: #20201a;
-      margin-bottom: 1.3em;
-      border: 2.5px solid var(--soft-gold);
-      box-shadow: 0 3px 14px #0002;
-    }
-    .product-name {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.17em;
-      color: var(--white);
-      margin-bottom: 0.4em;
-    }
-    .product-benefit {
-      font-size: 1.07em;
-      color: var(--gold);
-      font-family: 'Inter', Arial, sans-serif;
-      font-weight: 500;
-      margin-bottom: 0.6em;
-    }
-    #about { padding: 2.8em 0 2.8em; background: #191919; }
-    .about-title {
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: var(--brown);
-      font-size: 1.4em;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: .5em;
-      text-align: center;
-    }
-    .about-bullets {
-      display: flex; gap:2.2em; justify-content: center; flex-wrap: wrap; font-size: 1.18em;
-      color: var(--gold); font-weight: 600; margin-bottom: 1.5em;
-    }
-    .about-bullets span { 
-      background: var(--soft-gold);
-      padding: 0.14em 0.8em 0.14em 0.5em; border-radius: 2em; margin-right: .7em;
-      font-family: 'Montserrat', Arial, sans-serif;
-      display: inline-block;
-    }
-    .about-text {
-      max-width: 700px; margin: 0 auto;
-      text-align:center;
-      color: var(--grey);
-      font-size: 1.11em;
-      line-height: 1.6;
-      margin-bottom: 0.5em;
-    }
-    #trust { padding: 2.4em 0 2.6em;}
-    .trust-row {
-      display: flex; gap: 2.2em; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 0.5em;
-      margin-top: 0.8em;
-    }
-    .trust-block {
-      background: #21201f;
-      border-left: 5px solid var(--brown);
-      border-radius: 0.9em;
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1.08em;
-      min-width: 200px;
-      text-align: left;
-      padding: 1.05em 1.45em;
-      margin-bottom: 0.7em;
-      box-shadow: 0 1px 9px 0 #0002;
-      display: flex; align-items: center;
-      transition: border-color var(--transition);
-    }
-    .trust-block::before {
-      content: "✔";
-      color: var(--gold);
-      font-size: 1.32em;
-      margin-right: 0.73em;
-      font-weight: 900;
-    }
-    #contact { padding: 2.7em 0 2.7em; background: #191919; }
-    .contact-card {
-      background: var(--card-bg);
-      border-radius: 1.2em;
-      text-align: center;
-      padding: 2em 1.5em 1.7em;
-      margin: 0 auto;
-      max-width: 420px;
-      box-shadow: var(--shadow);
-      border: 1.2px solid var(--brown);
-      margin-bottom: 1.2em;
-    }
-    .contact-info {
-      color: var(--grey);
-      font-size: 1.11em;
-      margin-bottom: 1.2em;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-    .contact-socials {
-      margin-bottom: 1.1em;
-    }
-    .order-btn {
-      display: inline-block;
-      background: linear-gradient(92deg, var(--brown) 83%, var(--gold) 100%);
-      color: var(--white);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      font-size: 1.10em;
-      padding: 0.77em 2.35em;
-      border: none;
-      border-radius: 3em;
-      box-shadow: 0 2px 11px #7e52054a;
-      cursor: pointer;
-      margin-top: 0.3em;
-      letter-spacing: 0.09em;
-      transition: background var(--transition), color var(--transition), transform var(--transition);
-    }
-    .order-btn:hover, .order-btn:focus {
-      background: linear-gradient(92deg, var(--brown) 68%, var(--gold) 100%);
-      color: var(--gold);
-      transform: translateY(-1px) scale(1.034);
-      box-shadow: 0 5px 22px #7e520555;
-    }
-    footer {
-      background: #151311;
-      padding: 2.2em 0 .7em;
-      text-align: center;
-      color: var(--white);
-      font-size: 1.06em;
-      font-family: 'Montserrat', Arial, sans-serif;
-      border-top: 2.9px solid var(--soft-gold);
-    }
-    .footer-link {
-      color: var(--brown); font-weight: 700; margin: 0 0.3em; transition: color var(--transition);
-    }
-    .footer-link:hover { color: var(--gold);}
-    @media (max-width: 899px) {
-      .product-gallery { flex-direction: column; align-items: center; }
-      .product-card { width: 92vw; min-width: unset;}
-      .trust-row { flex-direction: column; align-items: center;}
-      .about-bullets { flex-direction: column; gap: 0.5em;}
-    }
-    @media (max-width: 599px) {
-      .hero { padding-top: 2em; }
-      .logo-img { width: 75px; height: 75px;}
-      .container { width: 97%; }
-      .about-title { font-size: 1.07em;}
-      .product-card { padding: 1.05em 0.6em 1.7em; }
-      footer { font-size: .99em; padding: 1.3em 0 .6em; }
-      #products, #about, #trust, #contact { padding-left: 2vw; padding-right: 2vw; }
-    }
-    html { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="hero">
-    <img src="logo.jpg" alt="MP Eagle Wood Craft Logo" class="logo-img" />
-    <div class="hero-title">MP EAGLE WOOD CRAFT</div>
-    <div class="tagline">STRONG. SIMPLE. SMART.</div>
-    <div class="hero-desc">Premium Handcrafted Wooden Products for Everyday Use</div>
-    <button class="cta-btn" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">
-      EXPLORE PRODUCTS
-    </button>
-  </section>
+<h1>MP Eagle Wood Craft 🦅</h1>
 
-  <!-- PRODUCTS GALLERY SECTION -->
-  <section id="products" class="container">
-    <h2 class="about-title" style="margin-bottom: 1em; color: var(--gold);">Products</h2>
-    <div class="product-gallery">
+<div class="products" id="products"></div>
 
-      <!-- Laptop Stand -->
-      <a class="product-card" href="https://www.instagram.com/mp_eagle_wood_craft" target="_blank" rel="noopener noreferrer" tabindex="0">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Wooden Laptop Stand" class="product-img" loading="lazy" />
-        <div class="product-name">Wooden Laptop Stand</div>
-        <div class="product-benefit">Elevate posture, work in comfort</div>
-      </a>
+<script>
+fetch("https://your-app.onrender.com/products")
+.then(res => res.json())
+.then(data => {
+  const container = document.getElementById("products");
 
-      <!-- Key Holder -->
-      <a class="product-card" href="https://www.instagram.com/mp_eagle_wood_craft" target="_blank" rel="noopener noreferrer" tabindex="0">
-        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Key Holder" class="product-img" loading="lazy" />
-        <div class="product-name">Key Holder</div>
-        <div class="product-benefit">Organize with elegant simplicity</div>
-      </a>
-
-      <!-- Desk Accessories -->
-      <a class="product-card" href="https://www.instagram.com/mp_eagle_wood_craft" target="_blank" rel="noopener noreferrer" tabindex="0">
-        <img src="https://images.unsplash.com/photo-1503389152951-9b835b52a1c6?auto=format&fit=crop&w=400&q=80" alt="Desk Accessories" class="product-img" loading="lazy" />
-        <div class="product-name">Desk Accessories</div>
-        <div class="product-benefit">Style meets daily functionality</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="container">
-    <h2 class="about-title">Engineered for strength.<br>Designed for comfort.<br>Built with precision.</h2>
-    <div class="about-bullets">
-      <span>Handcrafted Quality</span>
-      <span>Strong Materials</span>
-      <span>Long-lasting Durability</span>
-      <span>Everyday Usability</span>
-    </div>
-    <div class="about-text">
-      Every product at MP EAGLE WOOD CRAFT is handcrafted using select premium woods, guaranteeing unique character and strength. Our experienced artisans ensure precision in every detail—from the robust wood selection to the smooth, lasting finish. The result is timeless pieces built for everyday use: dependable, comfortable, and made to last for years. Choose craftsmanship you can see, feel, and trust.
-    </div>
-  </section>
-
-  <!-- TRUST & CREDIBILITY SECTION -->
-  <section id="trust" class="container">
-    <h2 class="about-title" style="color: var(--gold); margin-bottom: 1em;">Trust &amp; Credibility</h2>
-    <div class="trust-row">
-      <div class="trust-block">Quality Material</div>
-      <div class="trust-block">Strong Build</div>
-      <div class="trust-block">Affordable Price</div>
-      <div class="trust-block">Handmade Finish</div>
-    </div>
-  </section>
-
-  <!-- CONTACT & ORDER SECTION -->
-  <section id="contact" class="container">
-    <div class="contact-card">
-      <div class="about-title" style="color:var(--brown)">Contact &amp; Order</div>
-      <div class="contact-info">Email: contact@yourbusiness.com</div>
-      <div class="contact-socials">
-        <a href="https://www.instagram.com/mp_eagle_wood_craft" class="footer-link" target="_blank" rel="noopener noreferrer">
-          Instagram: @mp_eagle_wood_craft
+  data.forEach(p => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" />
+        <h2>${p.name}</h2>
+        <p>₹${p.price}</p>
+        <a href="https://instagram.com/mpeaglewoodcraft" target="_blank">
+          Order on Instagram
         </a>
       </div>
-      <a href="https://www.instagram.com/mp_eagle_wood_craft" target="_blank" rel="noopener noreferrer" class="order-btn">
-        ORDER ON INSTAGRAM
-      </a>
-    </div>
-  </section>
+    `;
+  });
+});
+</script>
 
-  <!-- FOOTER -->
-  <footer>
-    <div><strong>MP EAGLE WOOD CRAFT</strong> &mdash; STRONG. SIMPLE. SMART.</div>
-    <div style="margin-top: 0.3em;">
-      <a href="https://www.instagram.com/mp_eagle_wood_craft" class="footer-link" target="_blank" rel="noopener noreferrer">
-        Instagram
-      </a>
-      &middot;
-      <span>Made with passion for wood design</span>
-    </div>
-    <div style="font-size:0.85em; margin-top:0.4em; color:var(--grey);">
-      &copy; 2026 MP EAGLE WOOD CRAFT. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('keyup', e => {
-        if(e.key === 'Enter') card.click();
-      });
-    });
-  </script>
 </body>
 </html>
