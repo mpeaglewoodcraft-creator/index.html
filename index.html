@@ -1563,14 +1563,18 @@ function removeFromCart(id){
   showToast('Removed from cart');
 }
 
-function orderCartOnInstagram(){
-  if(cart.length===0)return;
-  const lines = cart.map(c=>`• ${c.name} × ${c.qty} = ₹${(c.price*c.qty).toLocaleString()}`).join('\n');
-  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const msg = `Hi! I want to place an order:\n\n${lines}\n\n💰 Total: ₹${total.toLocaleString()}\n\nPlease confirm availability and payment details. Thank you!`;
-  window.open('https://www.instagram.com/direct/new/','_blank');
-  navigator.clipboard.writeText(msg).catch(()=>{});
-  showToast('Order copied! Open Instagram DM 📷');
+function orderCartOnInstagram() {
+    if (cart.length === 0) return;
+    
+    const lines = cart.map(c => `• ${c.name} x ${c.qty} = ₹${(c.price * c.qty).toLocaleString()}`).join('\n');
+    const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+    
+    const message = encodeURIComponent(`Hi MP Eagle! I want to place an order:\n\n${lines}\n\n💰 Total: ₹${total.toLocaleString()}\n\nPlease confirm my order.`);
+    
+    // This opens the DM and fills it with the list of items
+    window.open(`https://ig.me/m/mp_eagle_woodcraft?text=${message}`, '_blank');
+    
+    showToast('Opening Instagram DM... 📷');
 }
 
 // ============ WISHLIST ============
