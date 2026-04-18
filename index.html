@@ -1496,7 +1496,7 @@ function submitReview(){
 function orderOnInstagram(){
   if(!currentProduct)return;
   const msg = `Hi! I want to order:\n\n🦅 *${currentProduct.name}*\nQty: ${modalCurrentQty}\nPrice: ₹${(currentProduct.price*modalCurrentQty).toLocaleString()}\n\nPlease confirm availability.`;
-  window.open(`https://www.instagram.com/direct/new/`,'_blank');
+  window.open(`https://www.instagram.com/direct/t/18070918781304442`,'_blank');
   navigator.clipboard.writeText(msg).catch(()=>{});
   showToast('Message copied! Open Instagram DM 📷');
 }
